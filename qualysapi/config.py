@@ -9,13 +9,15 @@ import logging
 # Setup module level logging.
 logger = logging.getLogger(__name__)
 
-from ConfigParser import *
+# from ConfigParser import *
+from configparser import *
 # try:
 #    from requests_ntlm import HttpNtlmAuth
 #except ImportError, e:
 #    logger.warning('Warning: Cannot support NTML authentication.')
 
-import qualysapi.settings as qcs
+# mds #import qualysapi.settings as qcs
+import qapi_settings as qcs
 
 __author__ = "Parag Baxi <parag.baxi@gmail.com> & Colin Bell <colin.bell@uwaterloo.ca>"
 __copyright__ = "Copyright 2011-2013, Parag Baxi & University of Waterloo"
@@ -31,6 +33,7 @@ class QualysConnectConfig:
 
         self._cfgfile = None
 
+        # print(("filename:",filename))
         # Prioritize local directory filename.
         # Check for file existence.
         if os.path.exists(filename):
@@ -74,7 +77,7 @@ class QualysConnectConfig:
                 self.max_retries = int(self.max_retries)
             except Exception:
                 logger.error('Value max_retries must be an integer.')
-                print 'Value max_retries must be an integer.'
+                print('Value max_retries must be an integer.')
                 exit(1)
             self._cfgparse.set('info', 'max_retries', str(self.max_retries))
         self.max_retries = int(self.max_retries)
@@ -151,7 +154,8 @@ class QualysConnectConfig:
 
         # ask username (if one doesn't exist)
         if not self._cfgparse.has_option('info', 'username'):
-            username = raw_input('QualysGuard Username: ')
+            # username = raw_input('QualysGuard Username: ')
+            username = eval(input('QualysGuard Username: '))
             self._cfgparse.set('info', 'username', username)
 
         # ask password (if one doesn't exist)

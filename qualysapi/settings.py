@@ -9,10 +9,12 @@ global default_filename
 
 import os
 
+# print(("os_name:", os.name))
 if os.name == 'nt':
     default_filename = "config.ini"
 else:
     default_filename = ".qcrc"
 
+# print(("default_filename:", default_filename))
 defaults = {'hostname': 'qualysapi.qualys.com',
             'max_retries': '3'}
