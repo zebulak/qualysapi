@@ -46,10 +46,10 @@ class QGConnector(api_actions.QGActions):
         self.rate_limit_remaining = defaultdict(int)
         # api_methods: Define method algorithm in a dict of set.
         # Naming convention: api_methods[api_version optional_blah] due to api_methods_with_trailing_slash testing.
-        self.api_methods = methods.api_methods
+        self.api_methods = qualysapi.api_methods.api_methods
         #
         # Keep track of methods with ending slashes to autocorrect user when they forgot slash.
-        self.api_methods_with_trailing_slash = methods.api_methods_with_trailing_slash
+        self.api_methods_with_trailing_slash = qualysapi.api_methods.api_methods_with_trailing_slash
         self.proxies = proxies
         logger.debug('proxies = \n%s' % proxies)
         # Set up requests max_retries.
@@ -274,7 +274,7 @@ class QGConnector(api_actions.QGActions):
         url = self.url_api_version(api_version)
         #
         # Set up headers.
-        headers = {"X-Requested-With": "Parag Baxi QualysAPI (python3) v%s" % (version.__version__,)}
+        headers = {"X-Requested-With": "Parag Baxi QualysAPI (python3) v%s" % (qualysapi.version.__version__,)}
         logger.debug('headers =\n%s' % (str(headers)))
         # Portal API takes in XML text, requiring custom header.
         if api_version in ('am', 'was','am2'):
