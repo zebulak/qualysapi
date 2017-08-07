@@ -1,9 +1,9 @@
 """ A set of utility functions for QualysConnect module. """
 import logging
 
-import qapi_config as qcconf
-import qapi_connector as qcconn
-import qapi_settings as qcs
+import qualysapi.config as qcconf
+import qualysapi.connector as qcconn
+import qualysapi.settings as qcs
 
 __author__ = "Parag Baxi <parag.baxi@gmail.com> & Colin Bell <colin.bell@uwaterloo.ca>"
 __copyright__ = "Copyright 2011-2013, Parag Baxi & University of Waterloo"

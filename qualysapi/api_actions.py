@@ -1,9 +1,6 @@
 from lxml import objectify
-# import qualysapi.api_objects
-# from qualysapi.api_objects import *
-
-import qapi_objects
-from qapi_objects import *
+import qualysapi.api_objects
+from qualysapi.api_objects import *
 
 class QGActions(object):  
     def getHost(host):

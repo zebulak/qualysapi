@@ -17,7 +17,7 @@ from configparser import *
 #    logger.warning('Warning: Cannot support NTML authentication.')
 
 # mds #import qualysapi.settings as qcs
-import qapi_settings as qcs
+import qualysapi.settings as qcs
 
 __author__ = "Parag Baxi <parag.baxi@gmail.com> & Colin Bell <colin.bell@uwaterloo.ca>"
 __copyright__ = "Copyright 2011-2013, Parag Baxi & University of Waterloo"
